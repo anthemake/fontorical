@@ -4,7 +4,7 @@ export default function Footer() {
 
     const handleRevokeConsent = () => {
         Cookies.remove("myAwesomeCookieName");
-        // Optionally reload the page to show the consent banner again
+       
         window.location.reload();
       };
 

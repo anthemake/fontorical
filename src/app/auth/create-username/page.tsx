@@ -9,29 +9,29 @@ export default function CreateUsername() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true); // Start loading
+    setLoading(true);
 
     try {
       const response = await fetch('/api/save-username', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username }),
-        credentials: 'include',  // Ensures cookies (including session) are passed with the request
+        credentials: 'include',
       });
 
-      const data = await response.json();  // Parse the JSON response
+      const data = await response.json(); 
 
       if (response.ok) {
-        // Redirect to the game start page after successful creation
+       
         window.location.href = '/start';
       } else {
-        setError(data.message);  // Set error message
+        setError(data.message); 
       }
     } catch (error) {
       console.error('Error submitting the form:', error);
       setError('An unexpected error occurred.');
     } finally {
-      setLoading(false);  // Stop loading
+      setLoading(false);  
     }
   };
 
